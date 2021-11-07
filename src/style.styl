@@ -1,0 +1,174 @@
+html,
+body
+  height 100%
+  width 100%
+  background black
+  margin 0
+  padding 0
+.blur-wrapper
+  width 100%
+  height 100%
+  position relative
+  overflow hidden
+
+.background-layer
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  background-color #454698
+
+blob()
+  position absolute
+  border-radius 100%
+  filter blur(99px)
+
+//////// Green
+green-color()
+  background radial-gradient(ellipse, #25b671 0, #28b571 30%, transparent)
+green-size-position()
+  bottom -50%
+  left -35%
+
+  width 50%
+  height 170%
+new-green-size-position()
+  width 70%
+  height 100%
+
+.green-blob
+  blob()
+  green-color()
+  green-size-position()
+  z-index 1
+  animation green-scale 20s infinite
+  animation-delay 10s
+
+@keyframes green-scale
+  50%
+    new-green-size-position()
+
+
+//////// Purple-bottom
+purple-color()
+  background #652497
+purple-size-position()
+  width 70%
+  height 80%
+
+  bottom -30%
+  left 10%
+new-purple-size-position()
+  width 100%
+  height 100%
+
+  left 10%
+
+.purple-bottom
+  blob()
+  purple-color()
+  purple-size-position()
+  z-index 1
+  animation purple-scale 20s infinite
+  animation-delay 10s
+
+@keyframes purple-scale
+  50%
+    new-purple-size-position()
+
+
+//////// Purple Left
+new-purple-left-size-position()
+  top: -28%;
+  right: -16%;
+
+  width: 73%;
+  height: 80%;
+purple-left-size-position()
+  top: -45%;
+  right: -35%;
+
+  width: 99%;
+  height: 122%;
+
+.purple-left-blob
+  blob()
+  purple-color()
+  purple-left-size-position()
+  z-index 4
+  animation animation-purple-left 20s infinite
+
+@keyframes animation-purple-left
+  50%
+    new-purple-left-size-position()
+
+//////// Red Left
+red-color()
+  background #f7a501
+new-red-left-size-position()
+  top -30%
+  right 7%
+
+  width 40%
+  height 40%
+red-left-size-position()
+  top: -49%;
+  right: -2%;
+  width: 54%;
+  height: 75%;
+
+.red-left-blob
+  blob()
+  red-color()
+  red-left-size-position()
+  z-index 4
+  animation animation-red 20s infinite
+
+@keyframes animation-red-left
+  50%
+    new-red-left-size-position()
+
+//////// Red Blob Right
+.red-right-blob
+  blob()
+  red-color()
+  z-index 4
+
+  top -10%
+  right -15%
+
+  width 40%
+  height 40%
+  animation animation-red-right 20s infinite
+
+@keyframes animation-red-right
+  50%
+    top -10%
+
+    width 30%
+    height 30%
+
+
+////// .purple-blob2
+.purple-right-blob
+  blob()
+  purple-color()
+  z-index 4
+
+  top -10%
+  right -15%
+
+  width 50%
+  height 70%
+
+  animation purple-blob2 20s infinite
+
+@keyframes purple-blob2
+  50%
+    width 40%
+    height 45%
+
+
+
+
