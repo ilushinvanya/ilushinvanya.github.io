@@ -81,8 +81,8 @@ function init() {
     var greenCircle = new Circle(greenParams.r_x_min, greenParams.r_x, greenParams.r_x_max, greenParams.r_y_min, greenParams.r_y, greenParams.r_y_max, 0, fullY, 0.2, 0.2, Color.vector[0]);
     var purpleCircle = new Circle(300, 350, 600, 300, 400, fullY, 800, fullY + 200, 0.2, 0.2, Color.vector[1]);
     var purple2Circle = new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1]);
-    var redCircle = new Circle(700, 800, 900, 200, 200, 400, fullX, 0, 0.2, 0.2, Color.vector[2]);
-    var redPurpleCircle = new Circle(1000, 1100, 1200, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1]);
+    var redCircle = new Circle(700, 800, 900, 200, 200, 300, fullX, 0, 0.2, 0.2, Color.vector[2]);
+    var redPurpleCircle = new Circle(1200, 1300, 1400, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1]);
     circles.push(greenCircle);
     circles.push(purpleCircle);
     circles.push(purple2Circle);

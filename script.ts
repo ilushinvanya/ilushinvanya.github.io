@@ -93,8 +93,8 @@ function init() {
     const purpleCircle =    new Circle(300, 350, 600, 300, 400, fullY, 800, fullY + 200, 0.2, 0.2, Color.vector[1])
     const purple2Circle =   new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1])
 
-    const redCircle =       new Circle(700, 800, 900, 200, 200, 400, fullX, 0, 0.2, 0.2, Color.vector[2])
-    const redPurpleCircle = new Circle(1000, 1100, 1200, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1])
+    const redCircle =       new Circle(700, 800, 900, 200, 200, 300, fullX, 0, 0.2, 0.2, Color.vector[2])
+    const redPurpleCircle = new Circle(1200, 1300, 1400, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1])
     circles.push(greenCircle);
     circles.push(purpleCircle);
     circles.push(purple2Circle);
