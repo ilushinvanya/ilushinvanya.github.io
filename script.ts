@@ -90,7 +90,7 @@ function init() {
         0.2,
         Color.vector[0]
     );
-    const purpleCircle =    new Circle(300, 350, 600, 300, 400, fullY, 800, fullY + 200, 0.2, 0.2, Color.vector[1])
+    const purpleCircle =    new Circle(300, 350, 600, 300, 400, fullY, 600, fullY + 200, 0.2, 0.2, Color.vector[1])
     const purple2Circle =   new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1])
 
     const redCircle =       new Circle(700, 800, 900, 200, 200, 300, fullX, 0, 0.2, 0.2, Color.vector[2])
