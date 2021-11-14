@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: aliceblue;
+
+
+}
+
+.canvas-wrapper {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+canvas {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, #454698 10%, #243797 100%);
+    cursor: pointer;
+}

@@ -61,6 +61,7 @@ var Circle = /** @class */ (function () {
     return Circle;
 }());
 var circles = [];
+var be = Date.now(), fps = 0;
 function init() {
     canvas = this.document.getElementById("canvas");
     c = canvas.getContext("2d");
@@ -69,11 +70,19 @@ function init() {
     var fullY = canvas.height;
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 2;
-    var greenCircle = new Circle(180, 200, 240, 600, 700, 1000, 0, fullY, 0.2, 0.3, Color.vector[0]);
-    var purpleCircle = new Circle(300, 350, 400, 300, 400, fullY, 600, fullY + 200, 0.2, 0.2, Color.vector[1]);
+    var greenParams = {
+        r_x_min: fullX / 8,
+        r_x: fullX / 7,
+        r_x_max: fullX / 6,
+        r_y_min: fullY / 2,
+        r_y: fullY,
+        r_y_max: fullY,
+    };
+    var greenCircle = new Circle(greenParams.r_x_min, greenParams.r_x, greenParams.r_x_max, greenParams.r_y_min, greenParams.r_y, greenParams.r_y_max, 0, fullY, 0.2, 0.2, Color.vector[0]);
+    var purpleCircle = new Circle(300, 350, 600, 300, 400, fullY, 800, fullY + 200, 0.2, 0.2, Color.vector[1]);
     var purple2Circle = new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1]);
-    var redCircle = new Circle(700, 800, 900, 200, 200, 400, fullX, 0, 0.1, 0.1, Color.vector[2]);
-    var redPurpleCircle = new Circle(1000, 1100, 1200, 500, 500, 700, fullX, 0, 0.1, 0.1, Color.vector[1]);
+    var redCircle = new Circle(700, 800, 900, 200, 200, 400, fullX, 0, 0.2, 0.2, Color.vector[2]);
+    var redPurpleCircle = new Circle(1000, 1100, 1200, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1]);
     circles.push(greenCircle);
     circles.push(purpleCircle);
     circles.push(purple2Circle);
@@ -86,8 +95,26 @@ function animation() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     // animation
     circles.forEach(function (circle) { return circle.run(); });
+    var now = Date.now();
+    fps = Math.round(1000 / (now - be));
+    be = now;
+    var kFps = this.document.getElementById("kFps");
+    var kpFps = this.document.getElementById("kpFps");
     // callback
     requestAnimationFrame(animation);
+    if (fps < 35) {
+        kFps.style.color = "red";
+        kFps.textContent = fps;
+    }
+    if (fps >= 35 && fps <= 41) {
+        kFps.style.color = "deepskyblue";
+        kFps.textContent = fps + " FPS";
+    }
+    else {
+        kFps.style.color = "black";
+        kFps.textContent = fps + " FPS";
+    }
+    kpFps.value = fps;
 }
 // ## utility functions
 function resetCanvas() {
