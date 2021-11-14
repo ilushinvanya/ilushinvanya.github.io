@@ -111,29 +111,25 @@ function animation() {
     // animation
     circles.forEach((circle) => circle.run());
 
-    let now = Date.now()
-    fps = Math.round(1000 / (now - be))
-    be = now
-    const kFps = this.document.getElementById("kFps");
-    const kpFps = this.document.getElementById("kpFps");
+    // let now = Date.now()
+    // fps = Math.round(1000 / (now - be))
+    // be = now
+    // const kFps = this.document.getElementById("kFps");
+    // const kpFps = this.document.getElementById("kpFps");
 
-
-    // callback
     requestAnimationFrame(animation);
 
-
-
-    if (fps < 35){
-        kFps.style.color = "red"
-        kFps.textContent = fps
-    } if (fps >= 35 && fps <= 41) {
-        kFps.style.color = "deepskyblue"
-        kFps.textContent = fps + " FPS"
-    } else {
-        kFps.style.color = "black"
-        kFps.textContent = fps + " FPS"
-    }
-    kpFps.value = fps
+    // if (fps < 35){
+    //     kFps.style.color = "red"
+    //     kFps.textContent = fps
+    // } if (fps >= 35 && fps <= 41) {
+    //     kFps.style.color = "deepskyblue"
+    //     kFps.textContent = fps + " FPS"
+    // } else {
+    //     kFps.style.color = "black"
+    //     kFps.textContent = fps + " FPS"
+    // }
+    // kpFps.value = fps
 }
 
 // ## utility functions
