@@ -1,10 +1,8 @@
 let canvas: HTMLCanvasElement;
 let c: CanvasRenderingContext2D;
-// const circleCount = window.innerWidth / 9;
 const circleCount = 1;
 const mouse = { x: null, y: null };
 let maxRadius = 200;
-// const maxRadius = window.innerWidth;
 
 const Color = {
     vector: ["#25b671", "#652497", "#f7a501"],
@@ -36,7 +34,7 @@ class Circle {
         c.beginPath();
         c.ellipse(this.x, this.y, this.r_x, this.r_y, Math.PI, 0, Math.PI * 2);
         c.fillStyle = this.color;
-        // c.filter = "blur(120px)"
+        c.filter = "blur(110px)"
         c.fill();
     }
 
@@ -64,11 +62,22 @@ function init() {
     canvas = this.document.getElementById("canvas");
     c = canvas.getContext("2d");
     this.resetCanvas();
+    const fullX = canvas.width;
+    const fullY = canvas.height;
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
 
-    const greenCircle = new Circle(180, 200, 240, 600, 700, 1000, 0, canvas.height, 0.2, 0.3, Color.vector[0])
-    const purpleCircle = new Circle(300, 350, 400, 300, 400, 500, 600, canvas.height, 0.2, 0.2, Color.vector[1])
+    const greenCircle =     new Circle(180, 200, 240, 600, 700, 1000, 0, fullY, 0.2, 0.3, Color.vector[0])
+    const purpleCircle =    new Circle(300, 350, 400, 300, 400, fullY, 600, fullY + 200, 0.2, 0.2, Color.vector[1])
+    const purple2Circle =   new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1])
+
+    const redCircle =       new Circle(700, 800, 900, 200, 200, 400, fullX, 0, 0.1, 0.1, Color.vector[2])
+    const redPurpleCircle = new Circle(1000, 1100, 1200, 500, 500, 700, fullX, 0, 0.1, 0.1, Color.vector[1])
     circles.push(greenCircle);
     circles.push(purpleCircle);
+    circles.push(purple2Circle);
+    circles.push(redPurpleCircle);
+    circles.push(redCircle);
 
     animation();
 }
