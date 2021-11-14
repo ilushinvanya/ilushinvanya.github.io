@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var canvas;
 var c;
 var circleCount = 1;
@@ -60,9 +75,23 @@ var Circle = /** @class */ (function () {
     };
     return Circle;
 }());
+var Pointer = /** @class */ (function (_super) {
+    __extends(Pointer, _super);
+    function Pointer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Pointer.prototype.draw = function () {
+        c.beginPath();
+        c.arc(mouse.x, mouse.y, this.r_x, 0, Math.PI * 2);
+        c.filter = "blur(0px)";
+        c.fillStyle = 'white';
+        c.fill();
+    };
+    return Pointer;
+}(Circle));
 var circles = [];
-var be = Date.now(), fps = 0;
 function init() {
+    // document.body.style.cursor = 'none';
     canvas = this.document.getElementById("canvas");
     c = canvas.getContext("2d");
     this.resetCanvas();
@@ -83,35 +112,19 @@ function init() {
     var purple2Circle = new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1]);
     var redCircle = new Circle(700, 800, 1000, 200, 200, 200, fullX, 0, 0.2, 0, Color.vector[2]);
     var redPurpleCircle = new Circle(1200, 1300, 1500, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1]);
+    var pointerCircle = new Pointer(12, 10, 18, 10, 10, 10, 0, 0, 0.1, 0.1, 'white');
     circles.push(purpleCircle);
     circles.push(greenCircle);
     circles.push(purple2Circle);
     circles.push(redPurpleCircle);
     circles.push(redCircle);
+    // circles.push(pointerCircle);
     animation();
 }
 function animation() {
-    // clear canvas
     c.clearRect(0, 0, canvas.width, canvas.height);
-    // animation
     circles.forEach(function (circle) { return circle.run(); });
-    // let now = Date.now()
-    // fps = Math.round(1000 / (now - be))
-    // be = now
-    // const kFps = this.document.getElementById("kFps");
-    // const kpFps = this.document.getElementById("kpFps");
     requestAnimationFrame(animation);
-    // if (fps < 35){
-    //     kFps.style.color = "red"
-    //     kFps.textContent = fps
-    // } if (fps >= 35 && fps <= 41) {
-    //     kFps.style.color = "deepskyblue"
-    //     kFps.textContent = fps + " FPS"
-    // } else {
-    //     kFps.style.color = "black"
-    //     kFps.textContent = fps + " FPS"
-    // }
-    // kpFps.value = fps
 }
 // ## utility functions
 function resetCanvas() {
@@ -136,34 +149,4 @@ window.addEventListener("mousemove", function (e) {
     mouse.y = e.clientY;
     //   console.log(mouse);
 });
-// run()
-// detect collision
-// const sideRight = this.side().right > canvas.width;
-// const sideLeft = this.side().left < 0;
-// const sideBottom = this.side().bottom > canvas.height;
-// const sideTop =  this.side().top < 0;
-//
-// if (sideRight || sideLeft)
-//     this.dx *= -1;
-// if (sideBottom || sideTop)
-//     this.dy *= -1;
-// increase size
-// if (
-//     // (mouse.x != mouse.y) != 0 &&
-//     this.side().left - mouse.x < 50 &&
-//     mouse.x - this.side().right < 50 &&
-//     this.side().top - mouse.y < 50 &&
-//     mouse.y - this.side().bottom < 50 &&
-//     this.r < maxRadius
-// )
-//     this.r += 3;
-// else if (this.r > this.r_min) this.r -= 1;
-// side() {
-//     return {
-//         right: this.x + this.r,
-//         left: this.x - this.r,
-//         bottom: this.y + this.r,
-//         top: this.y - this.r
-//     };
-// }
 //# sourceMappingURL=script.js.map
