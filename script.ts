@@ -34,7 +34,7 @@ class Circle {
         c.beginPath();
         c.ellipse(this.x, this.y, this.r_x, this.r_y, Math.PI, 0, Math.PI * 2);
         c.fillStyle = this.color;
-        c.filter = "blur(110px)"
+        c.filter = "blur(10px)"
         c.fill();
     }
 
@@ -113,7 +113,7 @@ function init() {
     circles.push(purple2Circle);
     circles.push(redPurpleCircle);
     circles.push(redCircle);
-    // circles.push(pointerCircle);
+    circles.push(pointerCircle);
 
     animation();
 }
