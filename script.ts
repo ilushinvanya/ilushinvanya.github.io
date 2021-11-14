@@ -34,7 +34,7 @@ class Circle {
         c.beginPath();
         c.ellipse(this.x, this.y, this.r_x, this.r_y, Math.PI, 0, Math.PI * 2);
         c.fillStyle = this.color;
-        // c.filter = "blur(110px)"
+        c.filter = "blur(110px)"
         c.fill();
     }
 
@@ -94,7 +94,7 @@ function init() {
     const purple2Circle =   new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1])
 
     const redCircle =       new Circle(700, 800, 1000, 200, 200, 200, fullX, 0, 0.2, 0, Color.vector[2])
-    const redPurpleCircle = new Circle(1200, 1300, 1400, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1])
+    const redPurpleCircle = new Circle(1200, 1300, 1500, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1])
     circles.push(greenCircle);
     circles.push(purpleCircle);
     circles.push(purple2Circle);
