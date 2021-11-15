@@ -109,25 +109,26 @@ function init() {
     };
     var redParams = {
         r_x_min: fullX / 2,
-        r_x: fullX / 1.5,
-        r_x_max: fullX / 1.5,
-        r_y_min: fullY / 5,
-        r_y: fullY / 5,
-        r_y_max: fullY / 5,
+        r_x: fullX / 3,
+        r_x_max: fullX / 3,
+        r_y_min: fullY / 4,
+        r_y: fullY / 4,
+        r_y_max: fullY / 4,
     };
+    var deltaRedPurple = 400;
     var redPurpleParams = {
-        r_x_min: fullX / 2 + 400,
-        r_x: fullX / 1.5 + 400,
-        r_x_max: fullX / 1.5 + 400,
-        r_y_min: fullY / 5 + 400,
-        r_y: fullY / 5 + 400,
-        r_y_max: fullY / 5 + 400,
+        r_x_min: redParams.r_x_min + deltaRedPurple,
+        r_x: redParams.r_x + deltaRedPurple,
+        r_x_max: redParams.r_x_max + deltaRedPurple,
+        r_y_min: redParams.r_y_min + deltaRedPurple,
+        r_y: redParams.r_y + deltaRedPurple,
+        r_y_max: redParams.r_y_max + deltaRedPurple,
     };
     var greenCircle = new Circle(greenParams.r_x_min, greenParams.r_x, greenParams.r_x_max, greenParams.r_y_min, greenParams.r_y, greenParams.r_y_max, 0, fullY, 0.2, 0.2, Color.vector[0]);
     var purpleCircle = new Circle(300, 350, 600, 300, 400, fullY, 600, fullY + 200, 0.2, 0.2, Color.vector[1]);
     var purple2Circle = new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1]);
-    var redCircle = new Circle(redParams.r_x_min, redParams.r_x, redParams.r_x_max, redParams.r_y_min, redParams.r_y, redParams.r_y_max, fullX, 0, 1, 1, Color.vector[2]);
-    var redPurpleCircle = new Circle(redPurpleParams.r_x_min, redPurpleParams.r_x, redPurpleParams.r_x_max, redPurpleParams.r_y_min, redPurpleParams.r_y, redPurpleParams.r_y_max, fullX, 0, 1, 1, Color.vector[1]);
+    var redCircle = new Circle(redParams.r_x_min, redParams.r_x, redParams.r_x_max, redParams.r_y_min, redParams.r_y, redParams.r_y_max, fullX, 0, 0.3, 0.3, Color.vector[2]);
+    var redPurpleCircle = new Circle(redPurpleParams.r_x_min, redPurpleParams.r_x, redPurpleParams.r_x_max, redPurpleParams.r_y_min, redPurpleParams.r_y, redPurpleParams.r_y_max, fullX, 0, 0.3, 0.3, Color.vector[1]);
     var pointerCircle = new Pointer(12, 10, 18, 10, 10, 10, 0, 0, 0.1, 0.1, 'white');
     circles.push(purpleCircle);
     circles.push(greenCircle);

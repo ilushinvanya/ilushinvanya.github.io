@@ -90,22 +90,23 @@ function init() {
 
     const redParams = {
         r_x_min: fullX / 2,
-        r_x: fullX / 1.5,
-        r_x_max: fullX / 1.5,
+        r_x: fullX / 3,
+        r_x_max: fullX / 3,
 
-        r_y_min: fullY / 5,
-        r_y: fullY / 5,
-        r_y_max: fullY / 5,
+        r_y_min: fullY / 4,
+        r_y: fullY / 4,
+        r_y_max: fullY / 4,
     }
 
+    const deltaRedPurple = 400;
     const redPurpleParams = {
-        r_x_min: fullX / 2 + 400,
-        r_x: fullX / 1.5 + 400,
-        r_x_max: fullX / 1.5 + 400,
+        r_x_min: redParams.r_x_min + deltaRedPurple,
+        r_x: redParams.r_x + deltaRedPurple,
+        r_x_max: redParams.r_x_max + deltaRedPurple,
 
-        r_y_min: fullY / 5 + 400,
-        r_y: fullY / 5 + 400,
-        r_y_max: fullY / 5 + 400,
+        r_y_min: redParams.r_y_min + deltaRedPurple,
+        r_y: redParams.r_y + deltaRedPurple,
+        r_y_max: redParams.r_y_max + deltaRedPurple,
     }
 
     const greenCircle = new Circle(
@@ -133,8 +134,8 @@ function init() {
         redParams.r_y_max,
         fullX,
         0,
-        1,
-        1,
+        0.3,
+        0.3,
         Color.vector[2]
     )
     const redPurpleCircle = new Circle(
@@ -146,8 +147,8 @@ function init() {
         redPurpleParams.r_y_max,
         fullX,
         0,
-        1,
-        1,
+        0.3,
+        0.3,
         Color.vector[1]
     )
 
