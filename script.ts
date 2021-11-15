@@ -34,7 +34,7 @@ class Circle {
         c.beginPath();
         c.ellipse(this.x, this.y, this.r_x, this.r_y, Math.PI, 0, Math.PI * 2);
         c.fillStyle = this.color;
-        c.filter = "blur(10px)"
+        c.filter = "blur(110px)"
         c.fill();
     }
 
@@ -88,6 +88,26 @@ function init() {
         r_y_max: fullY,
     }
 
+    const redParams = {
+        r_x_min: fullX / 2,
+        r_x: fullX / 1.5,
+        r_x_max: fullX / 1.5,
+
+        r_y_min: fullY / 5,
+        r_y: fullY / 5,
+        r_y_max: fullY / 5,
+    }
+
+    const redPurpleParams = {
+        r_x_min: fullX / 2 + 400,
+        r_x: fullX / 1.5 + 400,
+        r_x_max: fullX / 1.5 + 400,
+
+        r_y_min: fullY / 5 + 400,
+        r_y: fullY / 5 + 400,
+        r_y_max: fullY / 5 + 400,
+    }
+
     const greenCircle = new Circle(
         greenParams.r_x_min,
         greenParams.r_x,
@@ -104,8 +124,33 @@ function init() {
     const purpleCircle =    new Circle(300, 350, 600, 300, 400, fullY, 600, fullY + 200, 0.2, 0.2, Color.vector[1])
     const purple2Circle =   new Circle(1, 600, 600, 1, 600, 600, fullX, fullY, 1, 1, Color.vector[1])
 
-    const redCircle =       new Circle(700, 800, 1000, 200, 200, 200, fullX, 0, 0.2, 0, Color.vector[2])
-    const redPurpleCircle = new Circle(1200, 1300, 1500, 500, 500, 700, fullX, 0, 0.2, 0.2, Color.vector[1])
+    const redCircle = new Circle(
+        redParams.r_x_min,
+        redParams.r_x,
+        redParams.r_x_max,
+        redParams.r_y_min,
+        redParams.r_y,
+        redParams.r_y_max,
+        fullX,
+        0,
+        1,
+        1,
+        Color.vector[2]
+    )
+    const redPurpleCircle = new Circle(
+        redPurpleParams.r_x_min,
+        redPurpleParams.r_x,
+        redPurpleParams.r_x_max,
+        redPurpleParams.r_y_min,
+        redPurpleParams.r_y,
+        redPurpleParams.r_y_max,
+        fullX,
+        0,
+        1,
+        1,
+        Color.vector[1]
+    )
+
     const pointerCircle = new Pointer(12, 10, 18, 10, 10, 10, 0, 0, 0.1, 0.1, 'white')
 
     circles.push(purpleCircle);
@@ -113,7 +158,7 @@ function init() {
     circles.push(purple2Circle);
     circles.push(redPurpleCircle);
     circles.push(redCircle);
-    circles.push(pointerCircle);
+    // circles.push(pointerCircle);
 
     animation();
 }
