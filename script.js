@@ -54,7 +54,6 @@ var Circle = /** @class */ (function () {
         c.beginPath();
         c.ellipse(this.x, this.y, this.r_x, this.r_y, Math.PI, 0, Math.PI * 2);
         c.fillStyle = this.color;
-        c.filter = "blur(110px)";
         c.fill();
     };
     Circle.prototype.run = function () {
@@ -83,7 +82,6 @@ var Pointer = /** @class */ (function (_super) {
     Pointer.prototype.draw = function () {
         c.beginPath();
         c.arc(mouse.x, mouse.y, this.r_x, 0, Math.PI * 2);
-        c.filter = "blur(0px)";
         c.fillStyle = 'white';
         c.fill();
     };
@@ -124,7 +122,7 @@ function init() {
         r_y: redParams.r_y + deltaRedPurple,
         r_y_max: redParams.r_y_max + deltaRedPurple,
     };
-    var greenCircle = new Circle(greenParams.r_x_min, greenParams.r_x, greenParams.r_x_max, greenParams.r_y_min, greenParams.r_y, greenParams.r_y_max, 0, fullY, 0.2, 0.2, Color.vector[0]);
+    var greenCircle = new Circle(greenParams.r_x_min, greenParams.r_x, greenParams.r_x_max, greenParams.r_y_min, greenParams.r_y, greenParams.r_y_max, 0, fullY, 0.3, 0.3, Color.vector[0]);
     var purpleCircle = new Circle(400, 500, 600, 400, 500, fullY, centerX, fullY + 200, 0.2, 0.2, Color.vector[1]);
     var purple2Circle = new Circle(100, 600, 600, 100, 600, 600, fullX, fullY, 1, 1, Color.vector[1]);
     var redCircle = new Circle(redParams.r_x_min, redParams.r_x, redParams.r_x_max, redParams.r_y_min, redParams.r_y, redParams.r_y_max, fullX, 0, 0.3, 0.3, Color.vector[2]);
@@ -135,7 +133,7 @@ function init() {
     circles.push(purple2Circle);
     circles.push(redPurpleCircle);
     circles.push(redCircle);
-    // circles.push(pointerCircle);
+    circles.push(pointerCircle);
     animation();
 }
 function animation() {
@@ -162,8 +160,8 @@ function randomNumber(max, min, forbidden) {
 window.addEventListener("load", init);
 window.addEventListener("resize", resetCanvas);
 window.addEventListener("mousemove", function (e) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    //   console.log(mouse);
+    mouse.x = e.pageX;
+    mouse.y = e.pageY;
+    // console.log(e);
 });
 //# sourceMappingURL=script.js.map
