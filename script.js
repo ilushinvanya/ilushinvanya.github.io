@@ -164,14 +164,14 @@ window.addEventListener("mousemove", function (e) {
     mouse.y = e.pageY;
     // console.log(e);
 });
-var metaTag = document.querySelector('meta[name="theme-color"]');
-var hue = 0;
-function animate() {
-    hue++;
-    if (hue === 361) {
-        hue = 0;
-    }
-    metaTag.setAttribute('content', 'hsl(' + hue + ',100%,50%)');
-}
-setInterval(animate, 16);
+// const metaTag = document.querySelector('meta[name="theme-color"]');
+// let hue = 0;
+// function animate() {
+//     hue++;
+//     if (hue === 361) {
+//         hue = 0;
+//     }
+//     metaTag.setAttribute('content', 'hsl(' + hue + ',100%,50%)');
+// }
+// setInterval(animate, 16);
 //# sourceMappingURL=script.js.map
